@@ -174,12 +174,12 @@ def maincon():
                 print(ccc)
                 print(ddd)
                 
-            if ccc == ddd:
-                print("同じ")
+                if ccc == ddd:
+                    print("同じ")
                     
-            else:
-                send()
-                conlistka[aaa] = conlist[aaa]
+                else:
+                    send()
+                    conlistka[aaa] = conlist[aaa]
             
                 aaa = aaa + 1        
         print("時間待機")     
