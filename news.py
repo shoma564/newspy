@@ -47,7 +47,7 @@ cicdnum = len(cicdk)
 cicdnum = int(cicdnum)
 keylist.append(cicdk)
 
-cloudk = {"cloudk1":"gcp", "cloudk2":"aws", "cloudk3":"azule", "cloudk4":"oracle", "cloudk5":"cloudstack", "cloudk6":"openstack"}
+cloudk = {"cloudk1":"gcp", "cloudk2":"aws", "cloudk3":"cncf", "cloudk4":"oracle", "cloudk5":"cloudstack", "cloudk6":"openstack"}
 cloudknum = len(cloudk) 
 cloudknum = int(cloudknum)
 keylist.append(cloudk)
