@@ -6,17 +6,21 @@ import time
 import requests
 from bs4 import BeautifulSoup
 import pymsteams
-
+rrr = ""
 z = ""
 repres1 = ""
 
 
 
 #########################################  webhook  ############################################
-conhook = "https://smetrocit.webhook.office.com/webhookb2/58cf3a31-f9f6-4b00-b0bf-ebf58845ed65@a2c3e6fc-a959-4d2f-b374-4593a068ff9c/IncomingWebhook/ce5049bfeffb44f6870e25b7d6ad1a55/4e1c6fc9-4bcc-46e5-9fb5-40d14d4ef248"
-
-
-
+conhook = "https://smetrocit.webhook.office.com/webhookb2/58cf3a31-f9f6-4b00-b0bf-ebf58845ed65@a2c3e6fc-a959-4d2f-b374-4593a068ff9c/IncomingWebhook/9a99f6916bdf49ecaaad44fe3df51be5/4e1c6fc9-4bcc-46e5-9fb5-40d14d4ef248"
+cicdhook = "https://smetrocit.webhook.office.com/webhookb2/58cf3a31-f9f6-4b00-b0bf-ebf58845ed65@a2c3e6fc-a959-4d2f-b374-4593a068ff9c/IncomingWebhook/3596153ae8c94242b55f0bcd9612ef92/4e1c6fc9-4bcc-46e5-9fb5-40d14d4ef248"
+cloudhook = "https://smetrocit.webhook.office.com/webhookb2/58cf3a31-f9f6-4b00-b0bf-ebf58845ed65@a2c3e6fc-a959-4d2f-b374-4593a068ff9c/IncomingWebhook/3810c89c769249e59dfdeda17faa7b71/4e1c6fc9-4bcc-46e5-9fb5-40d14d4ef248"
+iachook = "https://smetrocit.webhook.office.com/webhookb2/58cf3a31-f9f6-4b00-b0bf-ebf58845ed65@a2c3e6fc-a959-4d2f-b374-4593a068ff9c/IncomingWebhook/2f93b868505f422babcdbf41e2fa3f36/4e1c6fc9-4bcc-46e5-9fb5-40d14d4ef248"
+nethook = "https://smetrocit.webhook.office.com/webhookb2/58cf3a31-f9f6-4b00-b0bf-ebf58845ed65@a2c3e6fc-a959-4d2f-b374-4593a068ff9c/IncomingWebhook/9eacb5a1c23e4532a5fabf980301bbd1/4e1c6fc9-4bcc-46e5-9fb5-40d14d4ef248"
+sechook = "https://smetrocit.webhook.office.com/webhookb2/58cf3a31-f9f6-4b00-b0bf-ebf58845ed65@a2c3e6fc-a959-4d2f-b374-4593a068ff9c/IncomingWebhook/f022aba5e807471b82ff3d984a012e48/4e1c6fc9-4bcc-46e5-9fb5-40d14d4ef248"
+kasohook = "https://smetrocit.webhook.office.com/webhookb2/58cf3a31-f9f6-4b00-b0bf-ebf58845ed65@a2c3e6fc-a959-4d2f-b374-4593a068ff9c/IncomingWebhook/7877639d19d94ba5873e0b47a44449eb/4e1c6fc9-4bcc-46e5-9fb5-40d14d4ef248"
+kansihook = "https://smetrocit.webhook.office.com/webhookb2/58cf3a31-f9f6-4b00-b0bf-ebf58845ed65@a2c3e6fc-a959-4d2f-b374-4593a068ff9c/IncomingWebhook/a29338171ec048f692e2aeca66823046/4e1c6fc9-4bcc-46e5-9fb5-40d14d4ef248"
 
 
 ####################################### SOURCE URL ######################################
@@ -31,8 +35,34 @@ sulist = ["https://thinkit.co.jp/search/site/", "https://qiita.com/search?page=1
 #########################################KEYWORD#########################################
 ##containers
 
+keylist = []
 
-conk = {"conk1":"docker", "conk2":"kubernetes", "conk3":"docker-compose", "conk4":"open shift", "conk5":"tanzu"}
+conk = {"conk1":"docker", "conk2":"kubernetes", "conk3":"docker-compose", "conk4":"open shift", "conk5":"tanzu", "conk6":"rancher"}
+keylist.append(conk)
+
+cicdk = {"cicdk1":"circle ci"}
+keylist.append(cicdk)
+
+cloudk = {"cloudk1":"gcp", "cloudk2":"aws", "cloudk3":"amazon", "cloudk4":"cloud", "cloudk5":"openstack", "cloudk6":"openstack"}
+keylist.append(cloudk)
+
+iack = {"iack1":"ansible", "iack2":"ansible", "iack3":"terraform", "iack4":"pulumi"}
+keylist.append(iack)
+
+netk = {"netk1":"vxlan", "netk2":"netflow"}
+keylist.append(netk)
+
+seck = {"seck1":"nmap"}
+keylist.append(seck)
+
+kasok = {"kasok1":"kvm","kasok2":"kvm kimch", "kasok3":"xen", "kasok4":"proxmox", "kasok5":"esxi"}
+keylist.append(kasok)
+
+kansik = {"kansik1":"zabbix", "kansik2":"prometheus", "kansik3":"prometheus expoter", "kansik4":"grafana", "kansi5":"ELKstack", "kansik6":"elastic search", "kansik7":"kibana", "kansik8":"logstash", "kansik9":"Loki"}
+keylist.append(kansik)
+
+
+
 conknum = len(conk) 
 conknum = int(conknum)
 conlist = []
@@ -50,7 +80,6 @@ def coll():
     res1 = requests.get(conurl1)
     soup1 = BeautifulSoup(res1.text, 'html.parser')
     
-    print(sulist[0])
     if z == "https://thinkit.co.jp/search/site/":
         class1 = soup1.find_all(["h3", "h2"], class_="list")
 
@@ -102,13 +131,10 @@ def coll():
         class1 = class1.replace('<a href="',' https://qiita.com')
         class1 = class1.replace('"','')
         repres1 = class1
-
+        repres1 = str(repres1)
 
     else:
         print("ひっかかってない")
-        
-
-    print(repres1)
 
 
 
@@ -120,9 +146,10 @@ def send():
     global conhook
     global repres1
  
- 
+
     myTeamsMessage = pymsteams.connectorcard(conhook)
     myTeamsMessage.title(str(i) + "関係のnewsが更新されました")
+    repres1 = str(repres1)
     myTeamsMessage.text(repres1)
     myTeamsMessage.send()
     
@@ -146,6 +173,7 @@ def maincon():
     global conlistka
     global sulist
     global z
+    global rrr
     
     fir = 0
 
@@ -156,32 +184,35 @@ def maincon():
     while True:
         aaa = 0
         print("スクレイピング開始します")
-        for z in sulist:
-            for i in conk.values():
-                if fir == 0:
-                    conlistka.append("a")
-                else:    
-                    path
-                
-                conurl1 = str(z) + str(i)
-                coll()
-                conlist.append(repres1)
-                print(repres1)
-                
-                ccc = conlist[aaa]
-                ddd = conlistka[aaa]
-                
-                print(ccc)
-                print(ddd)
-                
-                if ccc == ddd:
-                    print("同じ")
+        for rrr in keylist:
+            for z in sulist:
+                for i in rrr.values():
+                    print(rrr)
+                    if fir == 0:
+                        conlistka.append("a")
+                    else:    
+                        path
                     
-                else:
-                    send()
-                    conlistka[aaa] = conlist[aaa]
-            
-                aaa = aaa + 1        
+                    conurl1 = str(z) + str(i)
+                    print(conurl1)
+                    coll()
+                    conlist.append(repres1)
+                    
+                    ccc = conlist[aaa]
+                    ddd = conlistka[aaa]
+                    
+#                    print(ccc)
+#                    print(ddd)
+                    
+                    if ccc == ddd:
+                        print("同じ")
+                        
+                    else:
+                        print(repres1)
+                        send()
+                        conlistka[aaa] = conlist[aaa]
+                    time.sleep(2)
+                    aaa = aaa + 1        
         print("時間待機")     
         time.sleep(3600)        
 
