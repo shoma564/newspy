@@ -27,7 +27,7 @@ kansihook = "https://smetrocit.webhook.office.com/webhookb2/58cf3a31-f9f6-4b00-b
 su1 = "https://thinkit.co.jp/search/site/"
 su2 = "https://qiita.com/search?page=1&q=kubernetes"
 
-sulist = ["https://thinkit.co.jp/search/site/", "https://qiita.com/search?page=1&q="]
+sulist = ["https://thinkit.co.jp/search/site/", "https://qiita.com/search?&sort=created&q=", "https://qiita.com/search?q="]
 
 
 
@@ -67,7 +67,7 @@ secknum = len(seck)
 secknum = int(secknum)
 keylist.append(seck)
 
-kasok = {"kasok1":"kvm","kasok2":"vmwareh", "kasok3":"xen", "kasok4":"proxmox", "kasok5":"esxi"}
+kasok = {"kasok1":"kvm","kasok2":"vmware", "kasok3":"xen", "kasok4":"proxmox", "kasok5":"esxi"}
 kasoknum = len(kasok) 
 kasoknum = int(kasoknum)
 keylist.append(kasok)
