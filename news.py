@@ -38,33 +38,46 @@ sulist = ["https://thinkit.co.jp/search/site/", "https://qiita.com/search?page=1
 keylist = []
 
 conk = {"conk1":"docker", "conk2":"kubernetes", "conk3":"docker-compose", "conk4":"open shift", "conk5":"tanzu", "conk6":"rancher"}
+conknum = len(conk) 
+conknum = int(conknum)
 keylist.append(conk)
 
 cicdk = {"cicdk1":"circle ci"}
+cicdnum = len(cicdk) 
+cicdnum = int(cicdnum)
 keylist.append(cicdk)
 
 cloudk = {"cloudk1":"gcp", "cloudk2":"aws", "cloudk3":"amazon", "cloudk4":"cloud", "cloudk5":"openstack", "cloudk6":"openstack"}
+cloudknum = len(cloudk) 
+cloudknum = int(cloudknum)
 keylist.append(cloudk)
 
 iack = {"iack1":"ansible", "iack2":"ansible", "iack3":"terraform", "iack4":"pulumi"}
+iacknum = len(iack) 
+iacknum = int(iacknum)
 keylist.append(iack)
 
 netk = {"netk1":"vxlan", "netk2":"netflow"}
+netknum = len(netk) 
+netknum = int(netknum)
 keylist.append(netk)
 
 seck = {"seck1":"nmap"}
+secknum = len(seck) 
+secknum = int(secknum)
 keylist.append(seck)
 
 kasok = {"kasok1":"kvm","kasok2":"kvm kimch", "kasok3":"xen", "kasok4":"proxmox", "kasok5":"esxi"}
+kasoknum = len(kasok) 
+kasoknum = int(kasoknum)
 keylist.append(kasok)
 
 kansik = {"kansik1":"zabbix", "kansik2":"prometheus", "kansik3":"prometheus expoter", "kansik4":"grafana", "kansi5":"ELKstack", "kansik6":"elastic search", "kansik7":"kibana", "kansik8":"logstash", "kansik9":"Loki"}
+kansiknum = len(kansik) 
+kansiknum = int(kansiknum)
 keylist.append(kansik)
 
 
-
-conknum = len(conk) 
-conknum = int(conknum)
 conlist = []
 
 
@@ -139,15 +152,44 @@ def coll():
 
 
 
-
+count = 0
 
 ##############################  teams  #####################################################
 def send():
     global conhook
     global repres1
- 
+    global count
+    count = count +1
+    global i
+    
+    zn = len(sulist)
+    zn = int(zn)
+    
+    if count <= conknum*zn:
+        myTeamsMessage = pymsteams.connectorcard(conhook)
+        
+    if count > conknum*zn and count <= (conknum + cicdnum)*zn:
+        myTeamsMessage = pymsteams.connectorcard(cicdhook)
+        
+    if count > (conknum + cicdnum)*zn and count <= (conknum + cicdnum + cloudknum)*zn:
+        myTeamsMessage = pymsteams.connectorcard(cloudhook)
+        
+    if count > (conknum + cicdnum + cloudknum)*zn and count <= (conknum + cicdnum + cloudknum + iacknum)*zn:
+        myTeamsMessage = pymsteams.connectorcard(iachook)
+        
+    if count > (conknum + cicdnum + cloudknum + iacknum)*zn and count <= (conknum + cicdnum + cloudknum + iacknum + netknum)*zn:
+        myTeamsMessage = pymsteams.connectorcard(nethook)
+        
+    if count > (conknum + cicdnum + cloudknum + iacknum + netknum)*zn and count <= (conknum + cicdnum + cloudknum + iacknum + netknum + secknum)*zn:
+        myTeamsMessage = pymsteams.connectorcard(sechook)
+        
+    if count > (conknum + cicdnum + cloudknum + iacknum + netknum + secknum and count)*zn <= (conknum + cicdnum + cloudknum + iacknum + netknum + secknum + kasoknum)*zn:
+        myTeamsMessage = pymsteams.connectorcard(kasohook)
+        
+    if count > (conknum + cicdnum + cloudknum + iacknum + netknum + secknum + kasoknum and count)*zn <= (conknum + cicdnum + cloudknum + iacknum + netknum + secknum + kasoknum + kansiknum)*zn:
+        myTeamsMessage = pymsteams.connectorcard(kansihook)
 
-    myTeamsMessage = pymsteams.connectorcard(conhook)
+        
     myTeamsMessage.title(str(i) + "関係のnewsが更新されました")
     repres1 = str(repres1)
     myTeamsMessage.text(repres1)
@@ -201,8 +243,6 @@ def maincon():
                     ccc = conlist[aaa]
                     ddd = conlistka[aaa]
                     
-#                    print(ccc)
-#                    print(ddd)
                     
                     if ccc == ddd:
                         print("同じ")
@@ -211,7 +251,7 @@ def maincon():
                         print(repres1)
                         send()
                         conlistka[aaa] = conlist[aaa]
-                    time.sleep(2)
+                    time.sleep(3)
                     aaa = aaa + 1        
         print("時間待機")     
         time.sleep(3600)        
