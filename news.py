@@ -72,7 +72,7 @@ kasoknum = len(kasok)
 kasoknum = int(kasoknum)
 keylist.append(kasok)
 
-kansik = {"kansik1":"zabbix", "kansik2":"prometheus", "kansik3":"prometheus expoter", "kansik4":"grafana", "kansi5":"ELKstack", "kansik6":"elastic search", "kansik7":"kibana", "kansik8":"logstash", "kansik9":"Loki"}
+kansik = {"kansik1":"zabbix", "kansik2":"prometheus", "kansik3":"prometheus expoter", "kansik4":"grafana", "kansi5":"elk", "kansik6":"elastic search", "kansik7":"kibana", "kansik8":"logstash", "kansik9":"Loki"}
 kansiknum = len(kansik) 
 kansiknum = int(kansiknum)
 keylist.append(kansik)
