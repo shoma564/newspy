@@ -47,12 +47,12 @@ cicdnum = len(cicdk)
 cicdnum = int(cicdnum)
 keylist.append(cicdk)
 
-cloudk = {"cloudk1":"gcp", "cloudk2":"aws", "cloudk3":"amazon", "cloudk4":"cloud", "cloudk5":"openstack", "cloudk6":"openstack"}
+cloudk = {"cloudk1":"gcp", "cloudk2":"aws", "cloudk3":"azule", "cloudk4":"oracle", "cloudk5":"cloudstack", "cloudk6":"openstack"}
 cloudknum = len(cloudk) 
 cloudknum = int(cloudknum)
 keylist.append(cloudk)
 
-iack = {"iack1":"ansible", "iack2":"ansible", "iack3":"terraform", "iack4":"pulumi"}
+iack = {"iack1":"ansible", "iack2":"ansible", "iack3":"terraform", "iack4":"pulumi", "iack5":"vagrant"}
 iacknum = len(iack) 
 iacknum = int(iacknum)
 keylist.append(iack)
@@ -67,7 +67,7 @@ secknum = len(seck)
 secknum = int(secknum)
 keylist.append(seck)
 
-kasok = {"kasok1":"kvm","kasok2":"kvm kimch", "kasok3":"xen", "kasok4":"proxmox", "kasok5":"esxi"}
+kasok = {"kasok1":"kvm","kasok2":"vmwareh", "kasok3":"xen", "kasok4":"proxmox", "kasok5":"esxi"}
 kasoknum = len(kasok) 
 kasoknum = int(kasoknum)
 keylist.append(kasok)
