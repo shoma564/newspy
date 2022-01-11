@@ -161,6 +161,7 @@ def send():
     global count
     count = count +1
     global i
+    global myTeamsMessage
     
     zn = len(sulist)
     zn = int(zn)
@@ -183,10 +184,10 @@ def send():
     if count > (conknum + cicdnum + cloudknum + iacknum + netknum)*zn and count <= (conknum + cicdnum + cloudknum + iacknum + netknum + secknum)*zn:
         myTeamsMessage = pymsteams.connectorcard(sechook)
         
-    if count > (conknum + cicdnum + cloudknum + iacknum + netknum + secknum and count)*zn <= (conknum + cicdnum + cloudknum + iacknum + netknum + secknum + kasoknum)*zn:
+    if count > (conknum + cicdnum + cloudknum + iacknum + netknum + secknum)*zn and count <= (conknum + cicdnum + cloudknum + iacknum + netknum + secknum + kasoknum)*zn:
         myTeamsMessage = pymsteams.connectorcard(kasohook)
         
-    if count > (conknum + cicdnum + cloudknum + iacknum + netknum + secknum + kasoknum and count)*zn <= (conknum + cicdnum + cloudknum + iacknum + netknum + secknum + kasoknum + kansiknum)*zn:
+    if count > (conknum + cicdnum + cloudknum + iacknum + netknum + secknum + kasoknum)*zn and count <= (conknum + cicdnum + cloudknum + iacknum + netknum + secknum + kasoknum + kansiknum)*zn:
         myTeamsMessage = pymsteams.connectorcard(kansihook)
 
         
@@ -219,8 +220,7 @@ def maincon():
     
     fir = 0
 
-    for i in range(conknum):
-        conlistka.append("a")
+
 
 
     while True:
@@ -251,7 +251,7 @@ def maincon():
                         print(repres1)
                         send()
                         conlistka[aaa] = conlist[aaa]
-                    time.sleep(3)
+                    time.sleep(2)
                     aaa = aaa + 1        
         print("時間待機")     
         time.sleep(3600)        
