@@ -21,7 +21,7 @@ nethook = "https://smetrocit.webhook.office.com/webhookb2/58cf3a31-f9f6-4b00-b0b
 sechook = "https://smetrocit.webhook.office.com/webhookb2/58cf3a31-f9f6-4b00-b0bf-ebf58845ed65@a2c3e6fc-a959-4d2f-b374-4593a068ff9c/IncomingWebhook/f022aba5e807471b82ff3d984a012e48/4e1c6fc9-4bcc-46e5-9fb5-40d14d4ef248"
 kasohook = "https://smetrocit.webhook.office.com/webhookb2/58cf3a31-f9f6-4b00-b0bf-ebf58845ed65@a2c3e6fc-a959-4d2f-b374-4593a068ff9c/IncomingWebhook/7877639d19d94ba5873e0b47a44449eb/4e1c6fc9-4bcc-46e5-9fb5-40d14d4ef248"
 kansihook = "https://smetrocit.webhook.office.com/webhookb2/58cf3a31-f9f6-4b00-b0bf-ebf58845ed65@a2c3e6fc-a959-4d2f-b374-4593a068ff9c/IncomingWebhook/a29338171ec048f692e2aeca66823046/4e1c6fc9-4bcc-46e5-9fb5-40d14d4ef248"
-
+sikanhook = "https://smetrocit.webhook.office.com/webhookb2/58cf3a31-f9f6-4b00-b0bf-ebf58845ed65@a2c3e6fc-a959-4d2f-b374-4593a068ff9c/IncomingWebhook/eeb6b416490c42bdbaad8d9c024f9dcc/4e1c6fc9-4bcc-46e5-9fb5-40d14d4ef248"
 
 ####################################### SOURCE URL ######################################
 su1 = "https://thinkit.co.jp/search/site/"
@@ -197,6 +197,13 @@ def send():
     myTeamsMessage.text(repres1)
     myTeamsMessage.send()
     
+
+def sikan():
+    myTeams = pymsteams.connectorcard(sikanhook)        
+    myTeams.title("監視結果")
+    myTeams.text("正常に動作しています。")
+    myTeams.send()
+    
     
 
 ####################################### change ur  ######################################
@@ -253,12 +260,8 @@ def maincon():
                         send()
                         conlistka[aaa] = conlist[aaa]
                     time.sleep(2)
-                    aaa = aaa + 1        
-        print("時間待機")     
-        myTeams = pymsteams.connectorcard("https://smetrocit.webhook.office.com/webhookb2/58cf3a31-f9f6-4b00-b0bf-ebf58845ed65@a2c3e6fc-a959-4d2f-b374-4593a068ff9c/IncomingWebhook/eeb6b416490c42bdbaad8d9c024f9dcc/4e1c6fc9-4bcc-46e5-9fb5-40d14d4ef248")        
-        myTeams.title("監視結果")
-        myTeams.text("正常に動作しています。")
-        myTeams.send()
+                    aaa = aaa + 1  
+        sikan()            
         time.sleep(3600)        
 
 
