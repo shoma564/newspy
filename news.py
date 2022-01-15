@@ -37,7 +37,7 @@ sulist = ["https://thinkit.co.jp/search/site/", "https://qiita.com/search?&sort=
 
 keylist = []
 
-conk = {"conk1":"docker", "conk2":"kubernetes", "conk3":"docker-compose", "conk4":"open shift", "conk5":"tanzu", "conk6":"rancher"}
+conk = {"conk1":"docker", "conk2":"kubernetes", "conk3":"docker-compose", "conk4":"open shift", "conk5":"tanzu", "conk6":"rancher", "conk7":"singularity", "conk8":"slurm"}
 conknum = len(conk) 
 conknum = int(conknum)
 keylist.append(conk)
@@ -47,7 +47,8 @@ cicdnum = len(cicdk)
 cicdnum = int(cicdnum)
 keylist.append(cicdk)
 
-cloudk = {"cloudk1":"gcp", "cloudk2":"aws", "cloudk3":"cncf", "cloudk4":"oracle", "cloudk5":"cloudstack", "cloudk6":"openstack"}
+#pip3 install lxml
+cloudk = {"cloudk1":"gcp", "cloudk2":"aws", "cloudk3":"cncf", "cloudk4":"oracle", "cloudk5":"cloudstack", "cloudk7":"coreos"}
 cloudknum = len(cloudk) 
 cloudknum = int(cloudknum)
 keylist.append(cloudk)
