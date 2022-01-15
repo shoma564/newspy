@@ -255,6 +255,10 @@ def maincon():
                     time.sleep(2)
                     aaa = aaa + 1        
         print("時間待機")     
+        myTeams = pymsteams.connectorcard("https://smetrocit.webhook.office.com/webhookb2/58cf3a31-f9f6-4b00-b0bf-ebf58845ed65@a2c3e6fc-a959-4d2f-b374-4593a068ff9c/IncomingWebhook/eeb6b416490c42bdbaad8d9c024f9dcc/4e1c6fc9-4bcc-46e5-9fb5-40d14d4ef248")        
+        myTeams.title("監視結果")
+        myTeams.text("正常に動作しています。")
+        myTeams.send()
         time.sleep(3600)        
 
 
